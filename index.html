@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <script src="../assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.122.0" />
+    <title>Pricing example · Bootstrap v5.3</title>
+
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/pricing/"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"
+    />
+
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, 0.1);
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+          inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="pricing.css" rel="stylesheet" />
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        />
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        />
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        />
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        />
+      </symbol>
+    </svg>
+
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+      <button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+          <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" width="1em" height="1em">
+              <use href="#sun-fill"></use>
+            </svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" width="1em" height="1em">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" width="1em" height="1em">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check" viewBox="0 0 16 16">
+        <title>Check</title>
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        />
+      </symbol>
+    </svg>
+
+    <div class="container py-3">
+      <header>
+        <div
+          class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom"
+        >
+          <a
+            href="/"
+            class="d-flex align-items-center link-body-emphasis text-decoration-none"
+          >
+            <svg
+              width="55.44mm"
+              height="49.999"
+              viewBox="0 0 55.44 13.229"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g fill="#f27ba9">
+                <path
+                  d="M8.123 13.11a80.467 80.467 0 0 0-.283-.03 6.58 6.58 0 0 1-2.629-.9 6.727 6.727 0 0 1-1.722-1.52c-.098-.124-.19-.225-.204-.225-.015 0-.089.015-.165.033-.1.023-.193.03-.34.022a1.21 1.21 0 0 1-.84-.377 1.274 1.274 0 0 1-.249-1.47c.086-.174.227-.351.36-.45.053-.038.114-.084.137-.102l.042-.03-.044-.252c-.024-.139-.06-.388-.078-.555l-.034-.303-.206.008a.828.828 0 0 1-.307-.027.652.652 0 0 1-.357-.338c-.053-.114-.059-.148-.058-.33 0-.215.04-.38.141-.578.078-.152.078-.15-.167-.165a1.395 1.395 0 0 1-.583-.135.814.814 0 0 1-.362-.326c-.054-.097-.06-.126-.06-.29 0-.168.005-.191.068-.307.114-.21.306-.377.58-.504a.813.813 0 0 0 .15-.079c0-.006-.09-.099-.2-.206-.166-.165-.212-.225-.282-.368-.166-.339-.158-.594.026-.818.193-.235.61-.313 1.039-.192a.551.551 0 0 0 .16.031.744.744 0 0 0-.016-.181c-.035-.222-.017-.527.039-.688.157-.45.543-.613.963-.405.174.086.358.256.48.441.042.064.086.114.098.11a.674.674 0 0 0 .107-.148c.176-.289.42-.502.664-.579.314-.1.629.033.779.327.023.045.05.082.06.082s.109-.058.217-.13A6.563 6.563 0 0 1 7.98.137a8.82 8.82 0 0 1 1.194 0 6.534 6.534 0 0 1 5.443 4.049c.053.133.106.253.117.267.012.015.069.025.145.025.516 0 1.033.382 1.203.89.063.186.077.498.03.691-.11.458-.459.825-.905.954-.065.019-.12.045-.124.058a7.395 7.395 0 0 0-.04.312 6.508 6.508 0 0 1-4.808 5.528c-.573.148-.909.192-1.545.201-.273.004-.527.004-.566 0zm.919-.656a5.8 5.8 0 0 0 3.677-1.704 5.834 5.834 0 0 0 .714-7.404A5.853 5.853 0 0 0 9.416.819C9.004.757 8.193.75 7.81.808a5.908 5.908 0 0 0-2.6 1.027c-.109.077-.197.154-.197.17 0 .023.01.028.035.019.02-.008.108-.031.197-.053.46-.11.88.025 1.028.331.149.308.05.671-.275 1.014-.093.099-.156.18-.145.19.01.01.078.036.15.06.299.097.605.344.717.578a.525.525 0 0 1 .059.283c0 .136-.008.177-.053.262-.14.268-.466.445-.892.485-.085.008-.155.022-.155.03 0 .009.04.092.09.185.237.45.245.882.019 1.145-.11.128-.246.19-.442.2-.26.015-.476-.057-.754-.25-.07-.049-.135-.084-.144-.078-.01.005-.024.058-.032.116-.037.277-.178.585-.346.756-.287.295-.676.295-.963 0a1.414 1.414 0 0 1-.295-.524c-.07-.213-.09-.176-.076.142A5.828 5.828 0 0 0 4.1 10.375c.194.23.596.624.833.814.37.297.949.644 1.374.823a5.911 5.911 0 0 0 2.736.442zm-.03-1.697c-.324-.04-.732-.184-.826-.292a.317.317 0 0 1-.001-.421c.121-.14.227-.143.564-.021.196.07.232.077.477.085.222.007.291.002.434-.034a1.662 1.662 0 0 0 1.057-.796.79.79 0 0 1 .166-.219.322.322 0 0 1 .41.053c.06.06.07.088.078.189a.343.343 0 0 1-.047.227c-.152.298-.431.624-.698.812-.261.185-.627.34-.933.396a2.92 2.92 0 0 1-.68.021zM6.566 9.355c-.481-.155-.635-.754-.28-1.098.14-.137.242-.175.465-.174.16 0 .206.007.278.046.127.067.23.169.298.29.054.098.06.125.06.3 0 .223-.042.335-.177.47a.687.687 0 0 1-.644.166zm4.285-1.66a.784.784 0 0 1-.374-.39.661.661 0 0 1 .24-.761.614.614 0 0 1 .376-.115c.148 0 .259.034.376.115a.66.66 0 0 1-.084 1.126.858.858 0 0 1-.534.025zM9.36 4.902a2.75 2.75 0 0 1-1.642-.788c-.286-.286-.573-.745-.645-1.032a.387.387 0 0 1 .535-.445c.11.051.159.109.231.28.408.957 1.405 1.425 2.397 1.125.206-.062.258-.062.382 0 .12.06.192.16.206.282.017.146-.009.227-.102.323-.07.074-.112.097-.256.14-.365.11-.78.152-1.106.115zm.731-1.193a2.699 2.699 0 0 1-1.021-.295c-.281-.143-.49-.3-.73-.551-.244-.253-.318-.375-.318-.523a.37.37 0 0 1 .387-.388c.141 0 .237.063.384.25.614.782 1.713.963 2.575.426a.584.584 0 0 1 .25-.105c.244-.024.423.139.423.383 0 .204-.106.315-.484.509a2.53 2.53 0 0 1-.95.285l-.242.018c-.05.003-.173 0-.274-.009zM2.884 9.82c.006-.016-.049-.15-.122-.298a8.623 8.623 0 0 1-.23-.51c-.061-.152-.108-.243-.126-.243-.047 0-.156.183-.181.306-.043.206.013.4.164.563.092.1.16.142.29.183.11.035.191.035.205 0zm12.392-3.58c.157-.147.208-.261.208-.47 0-.146-.008-.187-.053-.273a.776.776 0 0 0-.344-.322c-.12-.046-.167-.031-.147.045.038.148.091.49.112.724.033.384.035.391.082.391.022 0 .086-.043.142-.095zm-11.66-.673a1.474 1.474 0 0 0 1.188-.909c.274-.68-.03-1.474-.698-1.824-.245-.128-.401-.164-.71-.164-.229 0-.296.007-.423.047a1.35 1.35 0 0 0-.619.376 1.1 1.1 0 0 0-.278.374c-.206.42-.207.851-.003 1.263.227.46.643.761 1.153.836.17.024.202.025.39.001z"
+                  stroke="#f27ba9"
+                  stroke-width=".23"
+                />
+                <path
+                  d="M38.445 5.692c-.01-.206-.685-.186-1.047-.186-.352-.01-.323.186-.323.186s-.098.95-.147 1.947c-.068.989-.088 2.026-.039 2.212.078.362.656.323 1.096.284.45-.069.47-.333.47-.333a82.18 82.18 0 0 1-.01-4.11z"
+                />
+                <path
+                  d="M37.759 3.63q.088.159.11.323.024.162.024.065.072-.061.119-.134.046-.074.164-.166.153-.045.256-.048.103-.004.179.04.083.028.173.144.09.115-.067.411-.235.31-.529.543-.292.233-.467.28-.088.047-.3-.273-.194-.306-.34-.604-.047-.164-.055-.28-.009-.117.035-.272.045-.14.256-.186.213-.047.442.157z"
+                  stroke-width=".092"
+                  aria-label="o"
+                />
+                <path
+                  d="M31.87 5.692c-.01-.206-.685-.186-1.047-.186-.352-.01-.323.186-.323.186s-.098.95-.147 1.947c-.068.989-.088 2.026-.039 2.212.078.362.656.323 1.096.284.45-.069.47-.333.47-.333a82.18 82.18 0 0 1-.01-4.11z"
+                />
+                <path
+                  d="M31.184 3.63q.088.159.11.323.024.162.024.065.072-.061.119-.134.046-.074.164-.166.153-.045.256-.048.103-.004.179.04.083.028.173.144.09.115-.067.411-.235.31-.529.543-.292.233-.467.28-.088.047-.3-.273-.194-.306-.34-.604-.047-.164-.055-.28-.009-.117.035-.272.045-.14.256-.186.213-.047.442.157z"
+                  stroke-width=".092"
+                  aria-label="o"
+                />
+                <path
+                  d="M21.94 3.226c-.5-.284-1.096-.42-1.732-.45-.245-.01-.49-.01-.754 0-.215-.03-.489-.01-.675.01-.362.02-.323.323-.323.323s-.03 1.487-.088 3.033c-.039 1.566-.098 3.19-.078 3.474.068.607.636.568 1.106.529.45-.03.489-.46.489-.46 0-.411 0-.822.01-1.243a4.18 4.18 0 0 0 1.986-.822c1.468-1.126 1.752-3.435.059-4.394zm-2.055 3.513c0-.734 0-1.615-.01-2.358 2.28-.157 2.104 2.201.01 2.358zM28.068 8.648c-.206-.5-.108-1.439-.098-1.938.636.06 1.204.118 1.331.088.284-.068.284-.636.264-1.086-.01-.46-.225-.499-.225-.499l-1.272-.03c.04-.665.098-1.35.088-2.064-.02-.401-.704-.333-1.057-.313-.205.03-.372.137-.381.313a57.162 57.162 0 0 0-.108 2.035c-.206 0-.411 0-.607.01-.098-.01-.137.578-.078.989.049.303.108.391.382.41.049 0 .097.01.156.01-.02.617-.049 1.135 0 1.644.098 1.047.607 2.085 1.722 2.231.411.06.9 0 1.233-.342.177-.186.274-.568.226-.9-.05-.353-.255-.46-.578-.343-.42.147-.802.235-.998-.215zM34.642 8.648c-.206-.5-.108-1.439-.098-1.938.636.06 1.204.118 1.331.088.284-.068.284-.636.264-1.086-.01-.46-.225-.499-.225-.499l-1.272-.03c.04-.665.098-1.35.088-2.064-.02-.401-.704-.333-1.057-.313-.205.03-.372.137-.381.313a57.162 57.162 0 0 0-.108 2.035c-.206 0-.411 0-.607.01-.098-.01-.137.578-.078.989.049.303.108.391.382.41.049 0 .097.01.156.01-.02.617-.049 1.135 0 1.644.098 1.047.607 2.085 1.722 2.231.411.06.9 0 1.233-.342.177-.186.274-.568.226-.9-.05-.353-.255-.46-.578-.343-.42.147-.802.235-.998-.215zM40.659 5.144v-.323c-.01-.225-.705-.186-1.057-.166-.362.02-.333.235-.333.235-.01.254-.215 4.638-.127 4.883.069.42.646.41 1.106.362.44-.04.47-.362.47-.362l-.03-2.055c.108-2.016 1.83-1.88 2.055-.568.069.401 0 .832-.049 1.292-.049.42-.117 1.194.118 1.497.205.274.655.245 1.008.196.45-.05.48-.5.48-.695l.019-1.595c0-.979-.147-1.634-.43-2.085-.676-1.066-2.242-1.037-3.23-.616zM46.605 5.252c.01-.705.04-1.419.088-2.133 0-.304-.685-.313-1.037-.333-.392-.01-.47.264-.5.548a44.291 44.291 0 0 0-.029 6.341c.118.587.676.509 1.135.42a.513.513 0 0 0 .44-.498 57.105 57.105 0 0 1-.087-1.85c-.059-1.654 1.78-1.976 1.595.01-.04.617-.118 1.213-.118 1.82.06.617.617.597 1.087.568.46-.01.499-.45.499-.45l.088-1.84c.244-2.593-1.605-3.474-3.161-2.603zM55.439 5.056c.01-.235-.665-.264-1.037-.284-.128-.01-.216.02-.255.05-.87-.236-1.78-.128-2.495.371-2.006 1.536-1.311 5.147 1.321 4.922.294-.03.587-.088.87-.156.167.293.666.234 1.067.176.45-.069.46-.372.46-.372a32.864 32.864 0 0 1 .069-4.707zM53.912 6.24c-.049.303-.068.646-.097.998-.03.333-.04.675-.06 1.008-2.426 1.879-2.191-2.945.157-2.006zM25.296 5.692c-.01-.206-.685-.186-1.047-.186-.352-.01-.323.186-.323.186s-.098.95-.147 1.947c-.068.989-.088 2.026-.039 2.212.078.362.656.323 1.096.284.45-.069.47-.333.47-.333a82.18 82.18 0 0 1-.01-4.11z"
+                />
+                <path
+                  d="M24.609 3.63q.088.159.11.323.024.162.024.065.072-.061.119-.134.046-.074.164-.166.153-.045.256-.048.103-.004.179.04.083.028.173.144.09.115-.067.411-.235.31-.529.543-.292.233-.467.28-.088.047-.3-.273-.194-.306-.34-.604-.047-.164-.055-.28-.009-.117.035-.272.045-.14.256-.186.213-.047.442.157z"
+                  stroke-width=".092"
+                  aria-label="o"
+                />
+              </g>
+            </svg>
+          </a>
+
+          <!-- <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            <a
+              class="me-3 py-2 link-body-emphasis text-decoration-none"
+              href="#"
+              >Features</a
+            >
+            <a
+              class="me-3 py-2 link-body-emphasis text-decoration-none"
+              href="#"
+              >Enterprise</a
+            >
+            <a
+              class="me-3 py-2 link-body-emphasis text-decoration-none"
+              href="#"
+              >Support</a
+            >
+            <a class="py-2 link-body-emphasis text-decoration-none" href="#"
+              >Pricing</a
+            >
+          </nav> -->
+        </div>
+
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+          <h1 class="display-4 fw-normal text-body-emphasis">Pricing</h1>
+          <p class="fs-5 text-body-secondary">
+            Quickly build an effective pricing table for your potential
+            customers with this Bootstrap example. It’s built with default
+            Bootstrap components and utilities with little customization.
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <div class="row row-cols-1 mb-3">
+          <div class="col">
+            <div id="cardPaymentBrick_container"></div>
+          </div>
+        </div>
+
+        <h2 class="display-6 text-center mb-4">Benefícios</h2>
+
+        <div class="table-responsive">
+          <table class="table text-center">
+            <thead>
+              <tr>
+                <th style="width: 34%"></th>
+                <th style="width: 22%">Free</th>
+                <th style="width: 22%">Pro</th>
+                <th style="width: 22%">Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start">Public</th>
+                <td>
+                  <svg class="bi" width="24" height="24">
+                    <use xlink:href="#check" />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="bi" width="24" height="24">
+                    <use xlink:href="#check" />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="bi" width="24" height="24">
+                    <use xlink:href="#check" />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Private</th>
+                <td></td>
+                <td>
+                  <svg class="bi" width="24" height="24">
+                    <use xlink:href="#check" />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="bi" width="24" height="24">
+                    <use xlink:href="#check" />
+                  </svg>
+                </td>
+              </tr>
+            </tbody>
+
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start">Permissions</th>
+                <td>
+                  <svg class="bi" width="24" height="24">
+                    <use xlink:href="#check" />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="bi" width="24" height="24">
+                    <use xlink:href="#check" />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="bi" width="24" height="24">
+                    <use xlink:href="#check" />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Sharing</th>
+                <td></td>
+                <td>
+                  <svg class="bi" width="24" height="24">
+                    <use xlink:href="#check" />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="bi" width="24" height="24">
+                    <use xlink:href="#check" />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Unlimited members</th>
+                <td></td>
+                <td>
+                  <svg class="bi" width="24" height="24">
+                    <use xlink:href="#check" />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="bi" width="24" height="24">
+                    <use xlink:href="#check" />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Extra security</th>
+                <td></td>
+                <td></td>
+                <td>
+                  <svg class="bi" width="24" height="24">
+                    <use xlink:href="#check" />
+                  </svg>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+          <div class="col-12 col-md">
+            <img
+              class="mb-2"
+              src="../assets/brand/bootstrap-logo.svg"
+              alt=""
+              width="24"
+              height="19"
+            />
+            <small class="d-block mb-3 text-body-secondary"
+              >&copy; 2017–2024</small
+            >
+          </div>
+          <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Cool stuff</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Random feature</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Team feature</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Stuff for developers</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Another one</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Last time</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Resource</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Resource name</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Another resource</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Final resource</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Team</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Locations</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Privacy</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Terms</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script>
+      const mp = new MercadoPago("TEST-89d34acd-a06d-42a7-8f34-ea5f071352cb", {
+        locale: "pt-BR",
+      });
+      const bricksBuilder = mp.bricks();
+      const renderCardPaymentBrick = async (bricksBuilder) => {
+        const settings = {
+          initialization: {
+            amount: 100, // valor total a ser pago
+            payer: {
+              email: "",
+            },
+          },
+          customization: {
+            visual: {
+              style: {
+                customVariables: {
+                  theme: "bootstrap", // | 'dark' | 'bootstrap' | 'flat'
+                  baseColor: "#f27ba9"
+                },
+              },
+            },
+            paymentMethods: {
+              maxInstallments: 1,
+            },
+          },
+          callbacks: {
+            onReady: () => {
+              // callback chamado quando o Brick estiver pronto
+            },
+            onSubmit: (cardFormData) => {
+              //  callback chamado o usuário clicar no botão de submissão dos dados
+              //  exemplo de envio dos dados coletados pelo Brick para seu servidor
+              return new Promise((resolve, reject) => {
+                fetch("/process_payment", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(cardFormData),
+                })
+                  .then((response) => {
+                    // receber o resultado do pagamento
+                    resolve();
+                  })
+                  .catch((error) => {
+                    // lidar com a resposta de erro ao tentar criar o pagamento
+                    reject();
+                  });
+              });
+            },
+            onError: (error) => {
+              // callback chamado para todos os casos de erro do Brick
+            },
+          },
+        };
+        window.cardPaymentBrickController = await bricksBuilder.create(
+          "cardPayment",
+          "cardPaymentBrick_container",
+          settings
+        );
+      };
+      renderCardPaymentBrick(bricksBuilder);
+    </script>
+  </body>
+</html>
